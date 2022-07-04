@@ -1,7 +1,7 @@
 # We can "import os" from the standard Python library
 import os
 # we need to do is to import the Flask class.
-# The capital F indicates that it's a class name, so it's important to use a capital F here.
+# The capital F indicates that it's a class name, so it's important to use a uppercase F here.
 from flask import Flask, render_template 
 
 # In Flask, the convention is that our variable is called 'app'.
@@ -14,9 +14,21 @@ app = Flask(__name__)
 # In Python, a decorator starts with the @ symbol, which is also called pie-notation.
 # Effectively, a decorator is a way of wrapping functions.
 @app.route("/")
-# Create a function called "index", which just returns the string, "Hello, World".
+# Create render template functions to route the html pages. 
+# Make sure that 2 blank lines separate each function to keep it PEP8 compliant.
 def index():
     return render_template("index.html")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 
 # if name is equal to "main" (both wrapped in double underscores), 
 # then we're going to run our app with the following arguments.

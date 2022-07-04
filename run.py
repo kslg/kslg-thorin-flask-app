@@ -2,7 +2,7 @@
 import os
 # we need to do is to import the Flask class.
 # The capital F indicates that it's a class name, so it's important to use a capital F here.
-from flask import Flask
+from flask import Flask, render_template 
 
 # In Flask, the convention is that our variable is called 'app'.
 # Since we're just using a single module, we can use __name__ 
@@ -16,9 +16,10 @@ app = Flask(__name__)
 @app.route("/")
 # Create a function called "index", which just returns the string, "Hello, World".
 def index():
-    return "Hello, World"
+    return render_template("index.html")
 
-
+# if name is equal to "main" (both wrapped in double underscores), 
+# then we're going to run our app with the following arguments.
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),

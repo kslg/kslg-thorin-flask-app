@@ -30,6 +30,11 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/careers")
+def careers():
+    return render_template("careers.html")
+
+
 # if name is equal to "main" (both wrapped in double underscores), 
 # then we're going to run our app with the following arguments.
 if __name__ == "__main__":

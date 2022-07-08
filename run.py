@@ -1,5 +1,7 @@
 # We can "import os" from the standard Python library
 import os
+# Import JSON Library
+import json
 # we need to do is to import the Flask class.
 # The capital F indicates that it's a class name, so it's important to use a uppercase F here.
 from flask import Flask, render_template 
@@ -22,7 +24,10 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About")
+    data = []
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("about.html", page_title="About", company=data)
 
 
 @app.route("/contact")

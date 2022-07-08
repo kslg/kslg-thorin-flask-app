@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row featurette">
+    <!-- <div class="row featurette">
         <div class="col-md-7">
             <h3>{{ page_title }}</h3>
 			<p>
@@ -13,6 +13,44 @@
         <div class="col-md-5">
             <img src="/static/img/about_us_image.webp" alt="">
         </div>
-    </div>
+    </div> -->
+
+    <!-- for-loop is going to iterate through all of the data in company.json -->
+    {% for member in company %}
+
+        <div class="row featurette">
+            <!-- If our loop.index is not divisible by 2 evenly, then we want to display that member to the page.     -->
+            <!-- Essentially, we are looking for odd numbers, since any odd number % 2 will never result in 0. -->
+            {% if loop.index % 2 != 0 %}
+
+                <div class="col-md-7">
+                    <h3>{{ loop.index }}. {{ member.name }}</h3>
+                    <p>{{ member.description }}</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+                </div>
+            <!-- Will display the image on the left, and the text on the right, if it's an even. -->
+            {% else %}
+
+                <div class="col-md-5">
+                    <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+                </div>
+                <div class="col-md-7">
+                    <h3>{{ loop.index }}. {{ member.name }}</h3>
+                    <p>{{ member.description }}</p>
+                </div>
+
+            {% endif %}
+
+        </div>
+        <!-- If-statement to check {% if loop.index != loop.length %}, then show the <hr> divider.   -->
+        {% if loop.index != loop.length %}
+
+            <hr class="featurette-divider">
+
+        {% endif %}
+
+    {% endfor %}
 
 {% endblock %}

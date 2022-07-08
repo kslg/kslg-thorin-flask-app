@@ -1,4 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>About Page</h2>
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3>{{ page_title }}</h3>
+			<p>
+                Our online service launched in 2008, but our story started a few years earlier.
+                Founders Mark Baker and Lee Colbran could see a void in the booking system market for software designed specifically for use in Schools. Both working within schools, they were frustrated with how rooms and resources where not being utilised, so they began developing an online solution. We built it for ourselves, knowing there must be other schools that shared our pain.
+                Today SchoolBooking is seen as the market leader booking system software for use in schools, managing thousands of bookings every day at sites across the globe.
+			</p>
+        </div>
+        <div class="col-md-5">
+            <img src="/static/img/about_us_image.webp" alt="">
+        </div>
+    </div>
+
 {% endblock %}

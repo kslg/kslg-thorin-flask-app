@@ -4,11 +4,11 @@
     <!-- <div class="row featurette">
         <div class="col-md-7">
             <h3>{{ page_title }}</h3>
-			<p>
+            <p>
                 Our online service launched in 2008, but our story started a few years earlier.
                 Founders Mark Baker and Lee Colbran could see a void in the booking system market for software designed specifically for use in Schools. Both working within schools, they were frustrated with how rooms and resources where not being utilised, so they began developing an online solution. We built it for ourselves, knowing there must be other schools that shared our pain.
                 Today SchoolBooking is seen as the market leader booking system software for use in schools, managing thousands of bookings every day at sites across the globe.
-			</p>
+            </p>
         </div>
         <div class="col-md-5">
             <img src="/static/img/about_us_image.webp" alt="">
@@ -24,27 +24,27 @@
             {% if loop.index % 2 != 0 %}
 
                 <div class="col-md-7">
-                    <h3>{{ loop.index }}. {{ member.name }}</h3>
+                    <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
                     <p>{{ member.description }}</p>
                 </div>
                 <div class="col-md-5">
                     <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
                 </div>
-            <!-- Will display the image on the left, and the text on the right, if it's an even. -->
+            
             {% else %}
 
                 <div class="col-md-5">
                     <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
                 </div>
                 <div class="col-md-7">
-                    <h3>{{ loop.index }}. {{ member.name }}</h3>
+                    <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
                     <p>{{ member.description }}</p>
                 </div>
 
             {% endif %}
 
         </div>
-        <!-- If-statement to check {% if loop.index != loop.length %}, then show the <hr> divider.   -->
+        <!-- If-statement to check loop.length, then show the <hr> divider.   -->
         {% if loop.index != loop.length %}
 
             <hr class="featurette-divider">

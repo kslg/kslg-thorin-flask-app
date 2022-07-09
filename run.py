@@ -4,7 +4,7 @@ import os
 import json
 # we need to do is to import the Flask class.
 # The capital F indicates that it's a class name, so it's important to use a uppercase F here.
-from flask import Flask, render_template 
+from flask import Flask, render_template, request
 
 # In Flask, the convention is that our variable is called 'app'.
 # Since we're just using a single module, we can use __name__ 
@@ -41,8 +41,11 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        print(request.form.get("name"))
+        print(request.form["email"])
     return render_template("contact.html", page_title="Contact")
 
 
